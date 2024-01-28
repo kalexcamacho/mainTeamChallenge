@@ -74,7 +74,7 @@ public class SpeedTest {
     }
 
     @Test
-    void testCalculateSpeed() {
+    void testCalculateSpeed() throws InvalidTrainingDataException {
         Speed speed = new Speed("200", "20");
         assertEquals(10.0, speed.calculateSpeed());
     }
@@ -82,6 +82,6 @@ public class SpeedTest {
     @Test
     void testCalculateSpeedWithZeroTime() {
         Speed speed = new Speed("200", "0");
-        assertThrows(IllegalStateException.class, speed::calculateSpeed);
+        assertThrows(InvalidTrainingDataException.class, speed::calculateSpeed);
     }
 }

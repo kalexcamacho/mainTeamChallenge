@@ -18,6 +18,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Controller for handling team-related operations.
+ */
 @RestController
 @RequestMapping("/main-team")
 public class TeamController {
@@ -32,6 +35,13 @@ public class TeamController {
         this.teamSelectionService = teamSelectionService;
     }
 
+    /**
+     * Endpoint for adding training data.
+     *
+     * @param data The training data in JSON format.
+     * @return ResponseEntity with status 200 if training data is added successfully,
+     * or ResponseEntity with status 400 if invalid training data is provided.
+     */
     @PostMapping("/training")
     @Operation(summary = "Add training data")
     @ApiResponses(value = {
@@ -54,6 +64,16 @@ public class TeamController {
         }
     }
 
+    /**
+     * Endpoint for getting the main team based on selection criteria.
+     *
+     * @param powerPercentage   The percentage weight for power.
+     * @param speedPercentage   The percentage weight for speed.
+     * @param passesPercentage  The percentage weight for passes.
+     * @param teamSize          The size of the team.
+     * @return ResponseEntity with status 200 and the selected team,
+     * or ResponseEntity with status 400 if not enough information is available.
+     */
     @GetMapping("/team")
     @Operation(summary = "Get team")
     @ApiResponses(value = {
