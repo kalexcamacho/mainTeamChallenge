@@ -15,6 +15,12 @@ public class Player {
     public Player() {
     }
 
+    public Player(int id, String name, List<Stats> stats) {
+        this.id = id;
+        this.name = name;
+        this.stats = stats;
+    }
+
     public int getId() {
         return id;
     }

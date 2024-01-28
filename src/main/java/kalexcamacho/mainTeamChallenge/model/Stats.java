@@ -9,6 +9,12 @@ public class Stats {
     public Stats() {
     }
 
+    public Stats(String power, Speed speed, String passes) {
+        this.power = power;
+        this.speed = speed;
+        this.passes = passes;
+    }
+
     public String getPower() {
         return power;
     }

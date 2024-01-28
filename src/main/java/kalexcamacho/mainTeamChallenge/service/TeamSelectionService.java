@@ -3,6 +3,7 @@ package kalexcamacho.mainTeamChallenge.service;
 import kalexcamacho.mainTeamChallenge.model.Player;
 import kalexcamacho.mainTeamChallenge.model.PlayerScore;
 import kalexcamacho.mainTeamChallenge.model.TeamSelectionCriteria;
+import kalexcamacho.mainTeamChallenge.model.TeamSelectionResponse;
 import kalexcamacho.mainTeamChallenge.repository.PlayerRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,7 @@ public class TeamSelectionService {
         this.playerRepository = playerRepository;
     }
 
-    public ResponseEntity<?> calculateMainTeam(TeamSelectionCriteria criteria) {
+    public ResponseEntity<TeamSelectionResponse> calculateMainTeam(TeamSelectionCriteria criteria) {
         List<Player> players = playerRepository.findAll();
 
         float powerPercentage = criteria.getPowerPercentage() != null ? criteria.getPowerPercentage() / 100.0f : 0.2f;
@@ -32,7 +33,9 @@ public class TeamSelectionService {
                 .toList();
 
         if (eligiblePlayers.size() < teamSize) {
-            return ResponseEntity.badRequest().body("There is not enough information.");
+            TeamSelectionResponse response = new TeamSelectionResponse();
+            response.setErrorMessage("There is not enough information.");
+            return ResponseEntity.badRequest().body(response);
         }
 
         List<PlayerScore> playerScores = eligiblePlayers.stream()
@@ -42,6 +45,8 @@ public class TeamSelectionService {
                 .limit(teamSize)
                 .toList();
 
-        return ResponseEntity.ok(playerScores);
+        TeamSelectionResponse response = new TeamSelectionResponse();
+        response.setPlayerScores(playerScores);
+        return ResponseEntity.ok(response);
     }
 }

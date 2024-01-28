@@ -8,9 +8,9 @@ public class Speed {
 
     public Speed() {
     }
-    public Speed(String distance, String time) throws InvalidTrainingDataException {
-        this.setDistance(distance);
-        this.setTime(time);
+    public Speed(String distance, String time) {
+        this.distance = distance;
+        this.time = time;
     }
 
     public String getDistance() {
