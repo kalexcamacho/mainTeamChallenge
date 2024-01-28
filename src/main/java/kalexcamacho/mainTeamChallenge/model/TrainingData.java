@@ -7,7 +7,10 @@ public class TrainingData {
     private List<Player> players;
 
     public TrainingData() {
-        this.players = new ArrayList<>();
+    }
+
+    public TrainingData(List<Player> players) {
+        this.players = players;
     }
 
     public List<Player> getPlayers() {
@@ -17,5 +20,4 @@ public class TrainingData {
     public void setPlayers(List<Player> players) {
         this.players = players;
     }
-
 }

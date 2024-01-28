@@ -8,6 +8,7 @@ public class Speed {
 
     public Speed() {
     }
+
     public Speed(String distance, String time) {
         this.distance = distance;
         this.time = time;

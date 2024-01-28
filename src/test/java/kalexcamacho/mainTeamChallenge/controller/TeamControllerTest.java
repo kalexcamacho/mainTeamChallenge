@@ -3,7 +3,6 @@ package kalexcamacho.mainTeamChallenge.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import kalexcamacho.mainTeamChallenge.exceptions.InvalidTrainingDataException;
 import kalexcamacho.mainTeamChallenge.model.*;
-import kalexcamacho.mainTeamChallenge.repository.PlayerRepository;
 import kalexcamacho.mainTeamChallenge.service.TeamSelectionService;
 import kalexcamacho.mainTeamChallenge.service.TrainingService;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,12 +16,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;

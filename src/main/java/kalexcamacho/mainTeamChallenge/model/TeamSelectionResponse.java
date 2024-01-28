@@ -9,7 +9,7 @@ public class TeamSelectionResponse {
     public TeamSelectionResponse() {
     }
 
-    private TeamSelectionResponse(List<PlayerScore> playerScores, String errorMessage) {
+    public TeamSelectionResponse(List<PlayerScore> playerScores, String errorMessage) {
         this.playerScores = playerScores;
         this.errorMessage = errorMessage;
     }
@@ -30,7 +30,4 @@ public class TeamSelectionResponse {
         return errorMessage;
     }
 
-    public boolean hasError() {
-        return errorMessage != null;
-    }
 }

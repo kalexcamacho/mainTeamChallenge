@@ -5,6 +5,10 @@ public class PlayerScore {
     private String name;
     private int score;
 
+    public PlayerScore() {
+
+    }
+
     public PlayerScore(int id, String name, int score) {
         this.id = id;
         this.name = name;

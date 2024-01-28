@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import kalexcamacho.mainTeamChallenge.exceptions.InvalidTrainingDataException;
 import kalexcamacho.mainTeamChallenge.model.TeamSelectionCriteria;
+import kalexcamacho.mainTeamChallenge.model.TeamSelectionResponse;
 import kalexcamacho.mainTeamChallenge.model.TrainingData;
 import kalexcamacho.mainTeamChallenge.service.TeamSelectionService;
 import kalexcamacho.mainTeamChallenge.service.TrainingService;
@@ -59,10 +60,10 @@ public class TeamController {
             @ApiResponse(responseCode = "200", description = "Success to get team", content = @Content),
             @ApiResponse(responseCode = "400", description = "Not enough information available", content = @Content)
     })
-    public ResponseEntity<?> getTeam(@RequestParam(required = false) Float powerPercentage,
-                                     @RequestParam(required = false) Float speedPercentage,
-                                     @RequestParam(required = false) Float passesPercentage,
-                                     @RequestParam(required = false) Integer teamSize) {
+    public ResponseEntity<TeamSelectionResponse> getTeam(@RequestParam(required = false) Float powerPercentage,
+                                                         @RequestParam(required = false) Float speedPercentage,
+                                                         @RequestParam(required = false) Float passesPercentage,
+                                                         @RequestParam(required = false) Integer teamSize) {
 
         TeamSelectionCriteria criteria = new TeamSelectionCriteria();
         criteria.setPowerPercentage(powerPercentage);
