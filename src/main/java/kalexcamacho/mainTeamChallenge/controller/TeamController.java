@@ -42,6 +42,7 @@ public class TeamController {
      * @return ResponseEntity with status 200 if training data is added successfully,
      * or ResponseEntity with status 400 if invalid training data is provided.
      */
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/training")
     @Operation(summary = "Add training data")
     @ApiResponses(value = {
@@ -74,6 +75,7 @@ public class TeamController {
      * @return ResponseEntity with status 200 and the selected team,
      * or ResponseEntity with status 400 if not enough information is available.
      */
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/team")
     @Operation(summary = "Get team")
     @ApiResponses(value = {
